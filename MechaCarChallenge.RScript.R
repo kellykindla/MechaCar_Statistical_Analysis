@@ -12,7 +12,6 @@ lm(mpg~vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,
 summary(lm(mpg~vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = MechaCar_DF)
 )
 
-<<<<<<< HEAD
 
 ##Deliverable 2 
 # import and read in the suspension_coil.csv file 
@@ -23,5 +22,20 @@ total_summary <- Suspension_Coil %>% summarize(Mean = mean(PSI), Median = median
 
 #create lot_summary df using the group_by() and summarize() functions to group each lot by the mean, meidan,variance, and sd of PSI
 lot_summary <- Suspension_Coil %>% group_by(Manufacturing_Lot) %>% summarize(Mean = mean(PSI), Median = median(PSI), Variance = var(PSI), SD = sd(PSI), .groups = "keep")
-=======
->>>>>>> 5723d178c53fcc00963668b7c47a62cc11b47e08
+
+## Deliverable 3
+# perform a t.test() to determine if the PSI across all manufacturing lots is statistically dif from pop mean of 1500
+t.test(Suspension_Coil$PSI, mu = 1500)
+
+#lot 1 t.test to determine if the PSI for lot 1 is statistically dif from the pop mean of 1500
+lot1 <- subset(Suspension_Coil, Manufacturing_Lot == "Lot1")
+t.test(lot1$PSI, mu = 1500)
+
+#lot 2 t.test to determine if the PSI for lot 2 is statistically dif from the pop mean of 1500
+lot2 <- subset(Suspension_Coil, Manufacturing_Lot == "Lot2")
+t.test(lot2$PSI, mu = 1500)
+
+#lot 3 t.test to determine if the PSI for lot 3 is statistically dif from the pop mean of 1500
+lot3 <- subset(Suspension_Coil, Manufacturing_Lot == "Lot3")
+t.test(lot3$PSI, mu = 1500)
+
